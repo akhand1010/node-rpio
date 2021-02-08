@@ -40,29 +40,46 @@ matrix:
           - ubuntu-toolchain-r-test
           packages:
           - g++-4.8
-    - name: 'Ubuntu ARM64 - Node.js LTS'
+    - name: 'Ubuntu 20.04 - Node.js LTS'
       os: linux
-      arch: arm64
+      arch: arm64-graviton2
+      virt: lxd
+      group: edge
+      dist: focal
+    - name: 'Ubuntu 18.04 - Node.js LTS'
+      os: linux
+      arch: arm64-graviton2
+      virt: lxd
+      group: edge
+      dist: bionic
+    - name: 'Ubuntu 16.04 - Node.js LTS'
+      os: linux
+      arch: arm64-graviton2
+      virt: lxd
+      group: edge
+      dist: xenial
+    - name: 'Ubuntu 14.04 - Node.js LTS'
+      os: linux
+      arch: arm64-graviton2
+      virt: lxd
+      group: edge
+      dist: trusty
+    - name: 'Ubuntu 12.04 - Node.js 10'
+      os: linux
+      arch: arm64-graviton2
+      virt: lxd
+      group: edge
+      dist: precise
+      node_js: "10"
+      env:
+        - CXX=g++-4.8
+      addons:
+        apt:
+          sources:
+          - ubuntu-toolchain-r-test
+          packages:
+          - g++-4.8
 
-    #
-    # Don't build on all available macOS platforms, just newest and oldest.
-    #
-    - name: 'macOS 10.14 / Xcode 11.3 - Node.js LTS'
-      os: osx
-      osx_image: xcode11.3
-    - name: 'macOS 10.11 / Xcode 7.3 - Node.js LTS'
-      os: osx
-      osx_image: xcode7.3
-
-    - name: 'Windows Server 1803 - Node.js LTS'
-      os: windows
-
-    #
-    # Test latest node and historical LTS releases on Linux/amd64 only.
-    #
-    #- name: 'Ubuntu - Node.js 15'
-    #  os: linux
-    #  node_js: "15"
     - name: 'Ubuntu - Node.js 14'
       os: linux
       node_js: "14"
@@ -86,4 +103,52 @@ matrix:
       node_js: "0.12"
     - name: 'Ubuntu - Node.js 0.10'
       os: linux
+      node_js: "0.10"
+    - name: 'Ubuntu - Node.js 14'
+      os: linux
+      arch: arm64-graviton2
+      virt: lxd
+      group: edge
+      node_js: "14"
+    - name: 'Ubuntu - Node.js 12'
+      os: linux
+      arch: arm64-graviton2
+      virt: lxd
+      group: edge
+      node_js: "12"
+    - name: 'Ubuntu - Node.js 10'
+      os: linux
+      node_js: "10"
+      arch: arm64-graviton2
+      virt: lxd
+      group: edge
+    - name: 'Ubuntu - Node.js 8'
+      os: linux
+      arch: arm64-graviton2
+      virt: lxd
+      group: edge
+      node_js: "8"
+    - name: 'Ubuntu - Node.js 6'
+      os: linux
+      arch: arm64-graviton2
+      virt: lxd
+      group: edge
+      node_js: "6"
+    - name: 'Ubuntu - Node.js 4'
+      os: linux
+      arch: arm64-graviton2
+      virt: lxd
+      group: edge
+      node_js: "4"
+    - name: 'Ubuntu - Node.js 0.12'
+      os: linux
+      arch: arm64-graviton2
+      virt: lxd
+      group: edge
+      node_js: "0.12"
+    - name: 'Ubuntu - Node.js 0.10'
+      os: linux
+      arch: arm64-graviton2
+      virt: lxd
+      group: edge
       node_js: "0.10"
